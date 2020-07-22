@@ -11,6 +11,7 @@ JS_SOURCES ?= $(shell find "$(SRC_DIR)" -type f -name '*.js')
 SVELTE_SOURCES ?= $(shell find "$(SRC_DIR)" -type f -name '*.svelte')
 SCSS_SOURCES ?= $(shell find "$(SRC_DIR)" -type f -name '*.scss')
 SOURCES ?= $(shell find "$(SRC_DIR)" -type f -name '*.ts' -o -name '*.js' -o -name '*.svelte' -o -name '*.scss')
+
 UNIT_TESTS ?= $(shell find tests -type f -name '*.test.ts')
 INTEGRATION_TESTS ?= $(shell find cypress -type f -name '*.js')
 
@@ -26,7 +27,7 @@ hooks: node_modules
 	@pre-commit install
 
 run: __sapper__/build node_modules
-	@echo "Run the server with 'node __sapper__/build'"
+	@node __sapper__/build
 
 clean:
 	@rm -rf \
