@@ -25,6 +25,19 @@ repos:
       hooks:
           - id: prettier
             entry: prettier --write --list-different --plugin-search-dir=.
+            files: "\\.(\
+                css|less|scss\
+                |graphql|gql\
+                |html\
+                |js|jsx\
+                |json\
+                |md|markdown|mdown|mkdn\
+                |mdx\
+                |ts|tsx\
+                |vue\
+                |svelte\
+                |yaml|yml\
+                )$"
     - repo: https://github.com/openstack-dev/bashate.git
       rev: 2.0.0
       hooks:

@@ -2,7 +2,8 @@
     const value: string = "14";
 </script>
 
+<p>{value}</p>
+
 <style>
 
 </style>
-<p>{value}</p>
