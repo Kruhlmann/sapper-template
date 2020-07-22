@@ -1,0 +1,29 @@
+{
+    "name": "sapper-template",
+    "version": "1.0.0",
+    "description": "A svelte/sapper template repository",
+    "repository": "git@github.com:Kruhlmann/sapper-template.git",
+    "author": "Andreas Krühlmann <andreas@kruhlmann.dev>",
+    "license": "GPL-3.0-or-later",
+    "devDdependencies": {
+        "sapper": "^0.27.16",
+        "svelte": "^3.24.0"
+    },
+    "dependencies": {
+        "compression": "^1.7.4",
+        "polka": "^0.5.2",
+        "sirv": "^1.0.1"
+    },
+    "devDependencies": {
+        "gts": "^2.0.2",
+        "jest": "^26.1.0",
+        "jest-sonar-reporter": "^2.0.0",
+        "node-sass": "^4.14.1",
+        "prettier": "^2.0.5",
+        "prettier-plugin-svelte": "^1.1.0",
+        "rollup": "^2.22.2",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-svelte": "^5.2.3",
+        "sonarqube-scanner": "^2.7.0"
+    }
+}
