@@ -5,6 +5,9 @@
     "repository": "git@github.com:Kruhlmann/sapper-template.git",
     "author": "Andreas Krühlmann <andreas@kruhlmann.dev>",
     "license": "GPL-3.0-or-later",
+    "engines": {
+        "node": ">=10.0.0"
+    },
     "dependencies": {
         "@types/compression": "^1.7.0",
         "compression": "^1.7.4",
