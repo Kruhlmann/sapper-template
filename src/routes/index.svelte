@@ -1,14 +1,17 @@
-<script lang="ts">
-    import Counter from "../components/Counter.svelte";
-    let value = 14;
-    const initial_value = value;
+<script lang="typescript">
+    interface ITest {}
+    let module: string = "Blank Svelte Native App\nwith TypeScript";
 </script>
 
-<Counter bind:count="{value}" />
-
-<p>My counter is at {value}</p>
-<p>It started at {initial_value}</p>
+<main>
+    <h1>Test 1234 {module}!</h1>
+</main>
 
 <style>
-
+    main {
+        text-align: center;
+        padding: 1em;
+        max-width: 240px;
+        margin: 0 auto;
+    }
 </style>
