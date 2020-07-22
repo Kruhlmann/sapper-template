@@ -41,7 +41,6 @@ clean:
 		src/lib/*.js
 
 node_modules: $(PKG_LOCKFILE)
-	@rm -rf node_modules
 	@$(PKG_MANAGER) install
 
 version.json: force

@@ -1,0 +1,19 @@
+{
+    "include": ["src/**/*"],
+    "exclude": ["node_modules/*"],
+    "compilerOptions": {
+        "module": "esnext",
+        "moduleResolution": "node",
+        "target": "esnext",
+        "typeRoots": ["typings", "node_modules/@types"],
+        "emitDecoratorMetadata": true,
+        "allowSyntheticDefaultImports": true,
+        "experimentalDecorators": true,
+        "esModuleInterop": true,
+        "noUnusedParameters": true,
+        "noUnusedLocals": true,
+        "noImplicitReturns": true,
+        "skipLibCheck": true,
+        "strict": true
+    }
+}

@@ -1,0 +1,31 @@
+repos:
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v2.3.0
+      hooks:
+          - id: check-added-large-files
+          - id: check-case-conflict
+          - id: check-executables-have-shebangs
+          - id: check-json
+          - id: check-merge-conflict
+          - id: check-symlinks
+          - id: check-toml
+          - id: check-yaml
+          - id: detect-private-key
+          - id: no-commit-to-branch
+            args: [-b master]
+          - id: end-of-file-fixer
+          - id: trailing-whitespace
+    - repo: https://github.com/adrienverge/yamllint.git
+      rev: v1.12.0
+      hooks:
+          - id: yamllint
+            files: \.(yaml|yml)$
+    - repo: https://github.com/prettier/prettier
+      rev: 2.0.5
+      hooks:
+          - id: prettier
+            entry: prettier --write --list-different --plugin-search-dir=.
+    - repo: https://github.com/openstack-dev/bashate.git
+      rev: 2.0.0
+      hooks:
+          - id: bashate
