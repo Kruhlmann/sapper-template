@@ -1,5 +1,4 @@
 <script lang="typescript">
-    interface ITest {}
     let module: string = "Blank Svelte Native App\nwith TypeScript";
 </script>
 
