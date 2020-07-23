@@ -1,5 +1,3 @@
-const sveltePreprocess = require("svelte-preprocess");
-
 module.exports = {
     collectCoverage: true,
     roots: ["<rootDir>"],
@@ -8,7 +6,7 @@ module.exports = {
         "^.+\\.tsx?$": "ts-jest",
         "^.+\\.svelte$": ["svelte-jester", { preprocess: true }],
     },
-    testRegex: "((\\.|/)(feature|test|spec))\\.tsx?$",
+    testRegex: "./tests/.*(feature|test|spec).tsx?$",
     moduleFileExtensions: ["ts", "tsx", "js", "mjs", "json"],
     moduleNameMapper: {
         "^src/(.*)": "<rootDir>/src/$1",

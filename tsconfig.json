@@ -1,6 +1,7 @@
 {
     "include": ["src/**/*"],
     "exclude": ["node_modules/*"],
+    "types": ["cypress"],
     "compilerOptions": {
         "module": "esnext",
         "moduleResolution": "node",
