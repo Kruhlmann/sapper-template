@@ -12,6 +12,9 @@ SVELTE_SOURCES ?= $(shell find "$(SRC_DIR)" -type f -name '*.svelte')
 SCSS_SOURCES ?= $(shell find "$(SRC_DIR)" -type f -name '*.scss')
 SOURCES ?= $(shell find "$(SRC_DIR)" -type f -name '*.ts' -o -name '*.js' -o -name '*.svelte' -o -name '*.scss')
 
+CONFIG_DIR ?= config
+SCRIPTS_DIR ?= scripts
+
 UNIT_TESTS ?= $(shell find tests -type f -name '*.test.ts')
 INTEGRATION_TESTS ?= $(shell find cypress -type f -name '*.js')
 
