@@ -1,6 +1,7 @@
 const sveltePreprocess = require("svelte-preprocess");
 
 module.exports = {
+    collectCoverage: true,
     roots: ["<rootDir>"],
     transform: {
         "^.+\\.mjs?$": "babel-jest",
