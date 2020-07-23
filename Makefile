@@ -35,7 +35,7 @@ run: __sapper__/build node_modules
 clean:
 	@rm -rf \
 		test-report.xml \
-	    	yarn-error.log \
+		yarn-error.log \
 		coverage/ \
 		doc/ \
 		__sapper__ \
