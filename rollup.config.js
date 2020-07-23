@@ -1,36 +1,23 @@
 import resolve from "@rollup/plugin-node-resolve";
 import replace from "@rollup/plugin-replace";
 import commonjs from "@rollup/plugin-commonjs";
-import json from "@rollup/plugin-json";
 import typescript from "@rollup/plugin-typescript";
-import svelte from "rollup-plugin-svelte";
 import babel from "@rollup/plugin-babel";
+import svelte from "rollup-plugin-svelte";
 import { terser } from "rollup-plugin-terser";
-import config from "sapper/config/rollup";
+import config from "sapper/config/rollup.js";
+import sveltePreprocess from "svelte-preprocess";
+
 import pkg from "./package.json";
-import { preprocess as sveltePreprocessConfig } from "./svelte.config";
 
-const preprocess = [
-    sveltePreprocessConfig,
-    // You could have more preprocessors, like MDsveX
-];
-
-const mode = process.env.NODE_ENV;
-const dev = mode === "development";
-const sourcemap = dev ? "inline" : false;
+const node_env = process.env.NODE_ENV;
+const dev = node_env === "development";
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
-const warningIsIgnored = (warning) =>
-    warning.message.includes(
-        "Use of eval is strongly discouraged, as it poses security risks and may cause issues with minification",
-    ) || warning.message.includes("Circular dependency: node_modules");
-
-// Workaround for https://github.com/sveltejs/sapper/issues/1266
-const onwarn = (warning, _onwarn) =>
+const onwarn = (warning, onwarn) =>
     (warning.code === "CIRCULAR_DEPENDENCY" &&
         /[/\\]@sapper[/\\]/.test(warning.message)) ||
-    warningIsIgnored(warning) ||
-    console.warn(warning.toString());
+    onwarn(warning);
 
 export default {
     client: {
@@ -39,13 +26,17 @@ export default {
         plugins: [
             replace({
                 "process.browser": true,
-                "process.env.NODE_ENV": JSON.stringify(mode),
+                "process.env.NODE_ENV": JSON.stringify(node_env),
             }),
             svelte({
                 dev,
                 hydratable: true,
                 emitCss: true,
-                preprocess,
+                preprocess: sveltePreprocess({
+                    typescript: {},
+                    pug: {},
+                    scss: {},
+                }),
             }),
             resolve({
                 browser: true,
@@ -53,12 +44,11 @@ export default {
             }),
             commonjs(),
             typescript(),
-            json(),
 
             legacy &&
                 babel({
                     extensions: [".js", ".mjs", ".html", ".svelte"],
-                    babelHelpers: "runtime",
+                    runtimeHelpers: true,
                     exclude: ["node_modules/@babel/**"],
                     presets: [
                         [
@@ -84,37 +74,38 @@ export default {
                     module: true,
                 }),
         ],
-
         preserveEntrySignatures: false,
         onwarn,
     },
 
     server: {
-        input: { server: config.server.input().server.replace(/\.js$/, ".ts") },
-        output: { ...config.server.output(), sourcemap },
+        input: config.server.input().server.replace(/\.js$/, ".ts"),
+        output: config.server.output(),
         plugins: [
             replace({
                 "process.browser": false,
-                "process.env.NODE_ENV": JSON.stringify(mode),
+                "process.env.NODE_ENV": JSON.stringify(node_env),
                 "module.require": "require",
             }),
             svelte({
                 generate: "ssr",
                 dev,
-                preprocess,
+                preprocess: sveltePreprocess({
+                    typescript: {},
+                    pug: {},
+                    scss: {},
+                }),
             }),
             resolve({
                 dedupe: ["svelte"],
             }),
             commonjs(),
             typescript(),
-            json(),
         ],
         external: Object.keys(pkg.dependencies).concat(
             require("module").builtinModules ||
-                Object.keys(process.binding("natives")), // eslint-disable-line global-require
+                Object.keys(process.binding("natives")),
         ),
-
         preserveEntrySignatures: "strict",
         onwarn,
     },
@@ -126,13 +117,12 @@ export default {
             resolve(),
             replace({
                 "process.browser": true,
-                "process.env.NODE_ENV": JSON.stringify(mode),
+                "process.env.NODE_ENV": JSON.stringify(node_env),
             }),
             commonjs(),
             typescript(),
             !dev && terser(),
         ],
-
         preserveEntrySignatures: false,
         onwarn,
     },

@@ -1,10 +1,18 @@
+const sveltePreprocess = require("svelte-preprocess");
+
 module.exports = {
-    collectCoverage: true,
-    testRegex: "(/__tests__/.*|(\\.|/)(test))\\.(jsx?|tsx?)$",
-    testResultsProcessor: "jest-sonar-reporter",
+    roots: ["<rootDir>"],
     transform: {
-        "^.+\\.svelte$": "svelte-jester",
-        "^.+\\.js$": "babel-jest",
+        "^.+\\.mjs?$": "babel-jest",
+        "^.+\\.tsx?$": "ts-jest",
+        "^.+\\.svelte$": ["svelte-jester", { preprocess: true }],
     },
-    moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "svelte"],
+    testRegex: "((\\.|/)(feature|test|spec))\\.tsx?$",
+    moduleFileExtensions: ["ts", "tsx", "js", "mjs", "json"],
+    moduleNameMapper: {
+        "^src/(.*)": "<rootDir>/src/$1",
+    },
+    moduleDirectories: ["node_modules", "src/node_modules"],
+    transformIgnorePatterns: ["/node_modules/(?!@sapper)"],
+    testEnvironment: "node",
 };

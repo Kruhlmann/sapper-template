@@ -1,16 +1,18 @@
 <script lang="typescript">
-    let module: string = "Blank Svelte Native App\nwith TypeScript";
+    import Counter from "../components/Counter.svelte";
+
+    let count = 5;
 </script>
 
 <main>
-    <h1>Test 1234 {module}!</h1>
+    <h1>Count outside is {count}!</h1>
+    <Counter count="{count}" />
 </main>
 
 <style>
     main {
         text-align: center;
-        padding: 1em;
-        max-width: 240px;
+        width: 100%;
         margin: 0 auto;
     }
 </style>

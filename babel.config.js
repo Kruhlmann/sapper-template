@@ -3,10 +3,25 @@ module.exports = {
         [
             "@babel/preset-env",
             {
-                targets: {
-                    node: "current",
-                },
+                targets: "> 0.25%, not dead",
             },
         ],
+        "@babel/preset-typescript",
+    ],
+    plugins: [
+        "babel-plugin-transform-typescript-metadata",
+        [
+            "@babel/plugin-proposal-decorators",
+            {
+                legacy: true,
+            },
+        ],
+        [
+            "@babel/plugin-proposal-class-properties",
+            {
+                loose: true,
+            },
+        ],
+        "@babel/plugin-transform-runtime",
     ],
 };

@@ -1,16 +1,19 @@
 <script lang="typescript">
-    let module: string = "Blank Svelte Native App\nwith TypeScript";
+    export let count = 0;
+
+    function add(): void {
+        count++;
+    }
+
+    function subtract(): void {
+        count--;
+    }
 </script>
 
-<main>
-    <h1>Test 1234 {module}!</h1>
-</main>
+<p>The current count inside Counter.svelte is {count}</p>
+<button on:click="{add}">Add</button>
+<button on:click="{subtract}">Subtract</button>
 
 <style>
-    main {
-        text-align: center;
-        padding: 1em;
-        max-width: 240px;
-        margin: 0 auto;
-    }
+
 </style>
