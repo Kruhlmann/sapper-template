@@ -1,12 +1,12 @@
 module.exports = {
     collectCoverage: true,
-    roots: ["<rootDir>"],
+    roots: ["<rootDir>/.."],
     transform: {
         "^.+\\.mjs?$": "babel-jest",
         "^.+\\.tsx?$": "ts-jest",
         "^.+\\.svelte$": ["svelte-jester", { preprocess: true }],
     },
-    testRegex: "./tests/.*(feature|test|spec).tsx?$",
+    testRegex: "../tests/.*(feature|test|spec).tsx?$",
     moduleFileExtensions: ["ts", "tsx", "js", "mjs", "json"],
     moduleNameMapper: {
         "^src/(.*)": "<rootDir>/src/$1",

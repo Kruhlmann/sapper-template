@@ -3,5 +3,5 @@
 $1 verify || $1 install
 node __sapper__/build &
 PID=$!
-$1 run
+$1 run --config-file $2
 kill $PID
