@@ -18,7 +18,7 @@ jobs:
               run: make lint
             - name: build
               run: make build
-            - name: unit-test
+            - name: test
               run: make test
             - name: build-image
               run: make docker
