@@ -7,7 +7,7 @@ test-integration: integration-report.xml
 
 test-unit: test-report.xml
 
-coverage test-report.xml: $(UNIT_TESTS) clean
+test-report.xml: $(UNIT_TESTS) clean
 	@$(JEST) -c jest.config.js
 
 integration-report.xml: $(INTEGRATION_TESTS) node_modules __sapper__/build
