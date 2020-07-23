@@ -1,5 +1,9 @@
 # Sapper template
 
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/kruhlmann/sapper-template/compliance?style=for-the-badge)
+[![Discord Server](https://img.shields.io/discord/572880907682447380%20.svg?logo=discord&style=for-the-badge)](https://discord.gg/38wH62F)
+[![Maintainability](https://img.shields.io/codeclimate/maintainability/Kruhlmann/sapper-teamplte.svg?style=for-the-badge)](https://codeclimate.com/github/Kruhlmann/sapper-template/maintainability)
+
 A sensibly configured Sapper/Svelte project template.
 
 ## Table of contents
