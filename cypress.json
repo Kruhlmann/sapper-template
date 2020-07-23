@@ -1,0 +1,9 @@
+{
+    "baseUrl": "http://localhost:3000",
+    "video": false,
+    "reporter": "junit",
+    "reporterOptions": {
+        "mochaFile": "integration-report.xml",
+        "toConsole": true
+    }
+}
