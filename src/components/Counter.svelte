@@ -1,5 +1,5 @@
 <script lang="typescript">
-    export let count = 0;
+    export let count: number = 0;
 
     function add(): void {
         count++;
