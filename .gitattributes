@@ -1,0 +1,4 @@
+*.svelte linguist-detectable
+*.svelte linguist-language=Svelte
+./src/core/* linguist-vendored
+./*.js
