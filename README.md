@@ -2,6 +2,28 @@
 
 A sensibly configured Sapper/Svelte project template.
 
+## Table of contents
+
+-   [Sapper template](#sapper-template)
+    -   [:pencil: Purpose](#-pencil--purpose)
+    -   [:hammer: Setup](#-hammer--setup)
+        -   [GNU/Linux & Mac OSX](#gnu-linux---mac-osx)
+        -   [Windows](#windows)
+        -   [Using Make](#using-make)
+            -   [Make variables](#make-variables)
+            -   [Make targets](#make-targets)
+                -   [General [Makefile](Makefile)](#general--makefile--makefile-)
+                -   [Notes [make/notes.mk](make/notes.mk)](#notes--make-notesmk--make-notesmk-)
+                -   [Tests [make/test.mk](make/test.mk)](#tests--make-testmk--make-testmk-)
+                -   [Build [make/build.mk](make/build.mk)](#build--make-buildmk--make-buildmk-)
+                -   [Documentation [make/doc.mk](make/doc.mk)](#documentation--make-docmk--make-docmk-)
+                -   [Linting [make/lint.mk](make/lint.mk)](#linting--make-lintmk--make-lintmk-)
+                -   [Development [make/dev.mk](make/dev.mk)](#development--make-devmk--make-devmk-)
+    -   [:construction_worker: GitHub Actions](#-construction-worker--github-actions)
+    -   [:white_check_mark: Tests](#-white-check-mark--tests)
+        -   [Unit tests](#unit-tests)
+        -   [Integration tests](#integration-tests)
+
 ## :pencil: Purpose
 
 I previously created an, admittedly,
