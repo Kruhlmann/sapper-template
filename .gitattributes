@@ -1,0 +1,2 @@
+*.svelte linguist-language=Svelte
+src/core/* -linguist-vendored
