@@ -5,9 +5,9 @@ A sensibly configured Sapper/Svelte project template.
 ## Table of contents
 
 -   [Sapper template](#sapper-template)
-    -   [:pencil: Purpose](#-pencil--purpose)
-    -   [:hammer: Setup](#-hammer--setup)
-        -   [GNU/Linux & Mac OSX](#gnu-linux---mac-osx)
+    -   [:pencil: Purpose](#pencil-purpose)
+    -   [:hammer: Setup](#hammer-setup)
+        -   [GNU/Linux & Mac OSX](#gnulinux--mac-osx)
         -   [Windows](#windows)
         -   [Using Make](#using-make)
             -   [Make variables](#make-variables)
@@ -19,8 +19,8 @@ A sensibly configured Sapper/Svelte project template.
                 -   [Documentation](#documentation-make-docmk)
                 -   [Linting](#linting-make-lintmk)
                 -   [Development](#development-make-devmk)
-    -   [:construction_worker: GitHub Actions](#-construction-worker--github-actions)
-    -   [:white_check_mark: Tests](#-white-check-mark--tests)
+    -   [:construction_worker: GitHub Actions](#construction-worker-github-actions)
+    -   [:white_check_mark: Tests](#white-check-mark-tests)
         -   [Unit tests](#unit-tests)
         -   [Integration tests](#integration-tests)
 
