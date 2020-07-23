@@ -8,7 +8,7 @@ on:
             - "*"
 
 jobs:
-    build:
+    ci:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
@@ -16,9 +16,9 @@ jobs:
               run: make node_modules
             - name: lint
               run: make lint
-            - name: unit-test
-              run: make test
             - name: build
               run: make build
+            - name: unit-test
+              run: make test
             - name: build-image
               run: make docker
