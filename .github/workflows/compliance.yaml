@@ -16,6 +16,10 @@ jobs:
               run: make node_modules
             - name: lint
               run: make lint
+            - name: notes
+              run: make notes
+            - name: disabled-rules
+              run: make disables
             - name: build
               run: make build
             - name: test

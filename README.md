@@ -106,6 +106,8 @@ you're most likely to use, but they can all be found in either
 
 -   `make notes` Will display the list of todos, fixes, notes etc found in the
     source code, unit tests and integration tests.
+-   `make disables` Will show the list of `eslint-disable` rules found in the
+    source code, unit tests and integration tests.
 
 ##### Tests [make/test.mk](make/test.mk)
 
