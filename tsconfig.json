@@ -5,6 +5,7 @@
     "compilerOptions": {
         "module": "esnext",
         "moduleResolution": "node",
+        "resolveJsonModule": true,
         "target": "esnext",
         "typeRoots": ["typings", "node_modules/@types"],
         "emitDecoratorMetadata": true,
