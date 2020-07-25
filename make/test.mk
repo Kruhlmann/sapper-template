@@ -7,10 +7,10 @@ test-integration: integration-report.xml
 
 test-unit: test-report.xml
 
-test-report.xml: $(UNIT_TESTS) clean
+test-report.xml: $(UNIT_TESTS) clean node_modules
 	@$(JEST) --verbose --config $(CONFIG_DIR)/jest.config.js
 
-integration-report.xml: $(INTEGRATION_TESTS) node_modules __sapper__/build
+integration-report.xml: $(INTEGRATION_TESTS) clean node_modules __sapper__/build
 	@$(SCRIPTS_DIR)/integration_test $(CYPRESS) $(CONFIG_DIR)/cypress.json
 
 .PHONY: test test-integration test-unit
