@@ -1,0 +1,13 @@
+name: build
+on:
+    push:
+        branches:
+            - "*"
+
+jobs:
+    ci:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: build-image
+              run: make docker
