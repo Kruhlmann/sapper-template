@@ -33,6 +33,7 @@ self.addEventListener("activate", (event: any) => {
     );
 });
 
+// eslint-disable-next-line complexity
 self.addEventListener("fetch", (event: any) => {
     if (event.request.method !== "GET" || event.request.headers.has("range"))
         return;
