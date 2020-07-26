@@ -34,6 +34,7 @@ module.exports = {
         "tsdoc/syntax": "error",
         "unicorn/filename-case": "off",
         "simple-import-sort/sort": "error",
+        complexity: ["error", 3],
         "sort-imports": "off",
         "import/first": "error",
         "import/newline-after-import": "error",
