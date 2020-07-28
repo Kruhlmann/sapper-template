@@ -51,9 +51,9 @@ function make_replace_plugin_configuration(node_environment, is_server) {
     return replace(replace_config);
 }
 
-function make_svelte_plugin_configuration(is_in_development, is_server) {
+function make_svelte_plugin_configuration(is_server) {
     const svelte_config = {
-        dev: is_in_development,
+        dev: false,
         hydratable: !is_server,
         emitCss: true,
         preprocess: svelte_preprocess({
@@ -88,7 +88,7 @@ export function make_plugin_configuration(
 ) {
     const rollup_plugin_configurations = [
         make_resolve_plugin_configuration(is_server),
-        make_svelte_plugin_configuration(is_in_development, is_server),
+        make_svelte_plugin_configuration(is_server),
         make_replace_plugin_configuration(node_environment, is_server),
         typescript(),
         commonjs(),
