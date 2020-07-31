@@ -6,7 +6,7 @@
 
 <main>
     <h1>Count outside is {count}!</h1>
-    <Counter count="{count}" />
+    <Counter bind:count />
 </main>
 
 <style>
