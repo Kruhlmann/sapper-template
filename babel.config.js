@@ -23,5 +23,9 @@ module.exports = {
             },
         ],
         "@babel/plugin-transform-runtime",
+        {
+            corejs: 3,
+            useESModules: true,
+        },
     ],
 };
