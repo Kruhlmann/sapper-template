@@ -22,10 +22,5 @@ module.exports = {
                 loose: true,
             },
         ],
-        "@babel/plugin-transform-runtime",
-        {
-            corejs: 3,
-            useESModules: true,
-        },
     ],
 };
