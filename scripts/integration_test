@@ -1,7 +1,20 @@
 #!/usr/bin/env sh
 
-$1 verify || $1 install
+error=0
+cypress=$1
+cypress_config=$2
+
+$cypress verify || $cypress install
+
 node __sapper__/build &
 PID=$!
-$1 run --config-file $2
-kill $PID
+
+$cypress run --config-file $cypress_config || error=10
+
+if [ "$error" -eq 0 ];then
+    kill $PID
+    exit 0
+fi
+
+exit $error
+
