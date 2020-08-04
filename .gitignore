@@ -6,7 +6,7 @@ test-report.xml
 integration-report.xml
 
 # Cypress artifacts.
-cypress/screenshots/
+screenshots/
 
 
 # Sapper specific

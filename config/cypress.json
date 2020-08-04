@@ -1,4 +1,10 @@
 {
+    "pluginsFile": "config/cypress/plugins/index.js",
+    "integrationFolder": "tests/integration/",
+    "screenshotsFolder": "screenshots",
+    "fixturesFolder": "config/cypress/fixtures",
+    "supportFile": "config/cypress/support/index.js",
+    "waitForAnimations": true,
     "baseUrl": "http://localhost:3000",
     "video": false,
     "reporter": "junit",
