@@ -12,7 +12,6 @@ repos:
           - id: check-yaml
           - id: detect-private-key
           - id: no-commit-to-branch
-            args: [-b master]
           - id: end-of-file-fixer
           - id: trailing-whitespace
     - repo: https://github.com/adrienverge/yamllint.git
