@@ -42,7 +42,7 @@ clean:
 		src/routes/helpers/*.js \
 		src/lib/*.js
 
-node_modules: $(PKG_LOCKFILE)
+node_modules: package.json
 	@$(PKG_MANAGER) install
 
 version.json: force
