@@ -1,0 +1,20 @@
+{
+    "payloads": {
+        "director": {
+            "first_name": "Steven",
+            "last_name": "Spielberg",
+            "date_of_birth": "1967-04-03",
+            "thumbnail": "/dev/tty1"
+        },
+        "movie": {
+            "title": "Taken",
+            "description": "Lorem Ipsum",
+            "release_date": "2000-01-01T00:00:00.000Z",
+            "minimum_age": 13,
+            "thumbnail": "/dev/tty1"
+        },
+        "genre": {
+            "name": "Action"
+        }
+    }
+}

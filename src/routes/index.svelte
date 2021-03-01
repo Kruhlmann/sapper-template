@@ -1,12 +1,7 @@
 <script lang="typescript">
-    import Counter from "../components/Counter.svelte";
-
-    let count = 5;
 </script>
 
 <main>
-    <h1>Count outside is {count}!</h1>
-    <Counter bind:count />
 </main>
 
 <style>
