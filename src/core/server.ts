@@ -3,18 +3,19 @@ import { Logger } from "../lib/log";
 import {
     Booking,
     DatabaseModelBuilder,
+    Director,
     Genre,
     Hall,
     Movie,
     MovieGenre,
+    MovieShow,
     Seat,
     Show,
     User,
-    Director,
 } from "../lib/models";
 import { ServerBuilder } from "../lib/server_builder";
 
-export const models = [Show, Hall, Director, Seat, Genre, User, MovieGenre, Genre, Movie, Booking];
+export const models = [Hall, Director, Seat, Genre, User, MovieGenre, Genre, Movie, Show, Booking, MovieShow];
 
 const { PORT, NODE_ENV, BASEPATH } = process.env;
 const development = NODE_ENV === "development";

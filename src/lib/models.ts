@@ -58,6 +58,10 @@ export class Movie extends Model {
         return Promise.all([
             Movie.belongsTo(Director, { foreignKey: { name: "director_id", allowNull: false }, onDelete: "cascade" }),
             Movie.belongsToMany(Genre, { through: "moviegenres", foreignKey: "movie_id", onDelete: "cascade" }),
+            Movie.belongsToMany(Show, {
+                through: "movieshows",
+                foreignKey: "movie_id",
+            }),
         ]).then();
     }
 }
@@ -73,6 +77,25 @@ export class MovieGenre extends Model {
                 },
             },
             { sequelize, modelName: "moviegenres", ...default_model_options },
+        );
+    }
+
+    public static async associate(): Promise<void> {
+        return new Promise((resolve) => resolve());
+    }
+}
+
+export class MovieShow extends Model {
+    public static async initialize(sequelize: Sequelize): Promise<Model<any, any>> {
+        return MovieShow.init(
+            {
+                id: {
+                    type: DataTypes.UUID,
+                    defaultValue: DataTypes.UUIDV4,
+                    primaryKey: true,
+                },
+            },
+            { sequelize, modelName: "movieshows", ...default_model_options },
         );
     }
 
@@ -159,7 +182,7 @@ export class Hall extends Model {
 
 export class Show extends Model {
     public static async initialize(sequelize: Sequelize): Promise<Model<any, any>> {
-        return Booking.init(
+        return Show.init(
             {
                 id: {
                     type: DataTypes.UUID,
@@ -186,7 +209,6 @@ export class Booking extends Model {
                     defaultValue: DataTypes.UUIDV4,
                     primaryKey: true,
                 },
-                date: { type: DataTypes.DATE, allowNull: false },
             },
             { sequelize, modelName: "booking", ...default_model_options },
         );
@@ -194,10 +216,9 @@ export class Booking extends Model {
 
     public static async associate(): Promise<void> {
         return Promise.all([
-            Booking.belongsTo(Movie, { foreignKey: { name: "movie_id", allowNull: false } }),
-            Booking.belongsTo(Seat, { foreignKey: { name: "seat_id", allowNull: false } }),
             Booking.belongsTo(User, { foreignKey: { name: "user_id", allowNull: false } }),
-            //Booking.belongsTo(Show, { foreignKey: { name: "show_id", allowNull: false } }),
+            Booking.belongsTo(Seat, { foreignKey: { name: "seat_id", allowNull: false } }),
+            Booking.belongsTo(Show, { foreignKey: { name: "show_id", allowNull: false } }),
         ]).then();
     }
 }

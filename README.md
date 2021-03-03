@@ -58,7 +58,7 @@ you're most likely to use, but they can all be found in either
 
 ##### Tests [make/test.mk](make/test.mk)
 
--   `make test` Runs `make test-unit` and `make-test` running unit tests and
+-   `make test` Runs `make test-unit` and `make-test-integration` running unit tests and
     integration tests. This also creates a coverage file for both test suites.
 
 ##### Build [make/build.mk](make/build.mk)
