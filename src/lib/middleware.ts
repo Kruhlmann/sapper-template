@@ -1,5 +1,5 @@
 import * as sapper from "@sapper/server";
-import { RequestHandler, Request, Response, NextFunction } from "express";
+import { NextFunction, Request, RequestHandler, Response } from "express";
 
 import { SapperSession } from "../../typings";
 import { Logger } from "./log";

@@ -38,6 +38,7 @@ export class User extends Model {
 
 export class Movie extends Model {
     public static async initialize(sequelize: Sequelize): Promise<Model<any, any>> {
+        Movie.init(
         return Movie.init(
             {
                 id: {

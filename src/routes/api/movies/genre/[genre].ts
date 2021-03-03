@@ -4,7 +4,6 @@ import { HttpStatusCode } from "../../../../lib/http_status_codes";
 import { Director, Genre, Movie } from "../../../../lib/models";
 
 export async function get(request: Request, response: Response): Promise<void> {
-    console.log(request.params);
     const movies_by_genre = await Movie.findAll({
         include: [Director, { model: Genre, as: "genres" }],
         where: {

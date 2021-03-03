@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 
 import { HttpStatusCode } from "../../../../lib/http_status_codes";
-import { Director, Movie, Genre } from "../../../../lib/models";
+import { Director, Genre, Movie } from "../../../../lib/models";
 
 export async function get(request: Request, response: Response): Promise<void> {
     const movie = await Movie.findByPk(request.params.id, { include: [Director, Genre] });

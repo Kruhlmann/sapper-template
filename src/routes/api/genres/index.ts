@@ -10,7 +10,6 @@ export async function get(_request: Request, response: Response): Promise<void> 
 }
 
 export async function post(request: Request, response: Response): Promise<void> {
-    console.log(request.body);
     Genre.create(request.body)
         .catch((error) => {
             console.error(error);
