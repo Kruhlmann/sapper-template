@@ -1,7 +1,6 @@
 import { DataTypes, Model, Sequelize, SyncOptions } from "sequelize";
 
 import { PostgresDatabaseConnection } from "./database";
-import { Logger } from "./log";
 
 type InitializeableDatabaseModel = {
     initialize(sequelize: Sequelize): Promise<Model<any, any>>;
@@ -38,7 +37,6 @@ export class User extends Model {
 
 export class Movie extends Model {
     public static async initialize(sequelize: Sequelize): Promise<Model<any, any>> {
-        Movie.init(
         return Movie.init(
             {
                 id: {
@@ -60,14 +58,13 @@ export class Movie extends Model {
         return Promise.all([
             Movie.belongsTo(Director, { foreignKey: { name: "director_id", allowNull: false }, onDelete: "cascade" }),
             Movie.belongsToMany(Genre, { through: "moviegenres", foreignKey: "movie_id", onDelete: "cascade" }),
-            //Movie.belongsToMany(Booking, { through: "moviebookings" }),
         ]).then();
     }
 }
 
 export class MovieGenre extends Model {
     public static async initialize(sequelize: Sequelize): Promise<Model<any, any>> {
-        return Genre.init(
+        return MovieGenre.init(
             {
                 id: {
                     type: DataTypes.UUID,
@@ -76,25 +73,6 @@ export class MovieGenre extends Model {
                 },
             },
             { sequelize, modelName: "moviegenres", ...default_model_options },
-        );
-    }
-
-    public static async associate(): Promise<void> {
-        return new Promise((resolve) => resolve());
-    }
-}
-
-export class MovieDirector extends Model {
-    public static async initialize(sequelize: Sequelize): Promise<Model<any, any>> {
-        return Genre.init(
-            {
-                id: {
-                    type: DataTypes.UUID,
-                    defaultValue: DataTypes.UUIDV4,
-                    primaryKey: true,
-                },
-            },
-            { sequelize, modelName: "moviedirectors", ...default_model_options },
         );
     }
 
@@ -249,11 +227,8 @@ export class DatabaseModelBuilder {
         models: InitializeableDatabaseModel[],
         force_override_models = false,
     ): Promise<void> {
-        Logger.log("Initializing models");
         await this.initialize_models(models);
-        Logger.log("Associating models");
         await this.create_model_database_associations(models);
-        Logger.log("Synching models");
         PostgresDatabaseConnection.instance.database.sync({ force: force_override_models });
     }
 

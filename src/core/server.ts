@@ -6,23 +6,22 @@ import {
     Genre,
     Hall,
     Movie,
-    MovieDirector,
     MovieGenre,
     Seat,
     Show,
     User,
+    Director,
 } from "../lib/models";
 import { ServerBuilder } from "../lib/server_builder";
 
-export const base_models = [Show, Hall, Seat, Genre, User, Genre, Movie, Booking];
-export const junction_models = [MovieDirector, MovieGenre];
+export const models = [Show, Hall, Director, Seat, Genre, User, MovieGenre, Genre, Movie, Booking];
 
 const { PORT, NODE_ENV, BASEPATH } = process.env;
 const development = NODE_ENV === "development";
 
 try {
     PostgresDatabaseConnection.initialize("postgres", "postgres", "cinema");
-    DatabaseModelBuilder.initialize([...junction_models, ...base_models], true);
+    DatabaseModelBuilder.initialize(models, true);
 
     const webserver = ServerBuilder.make_sapper_express_server("d79n1meaz9Xz71m00yf7b", development, BASEPATH);
     webserver.listen(PORT, console.error);

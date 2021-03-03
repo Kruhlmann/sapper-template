@@ -16,9 +16,7 @@ export async function post(request: Request, response: Response): Promise<void> 
             response.status(HttpStatusCode.INTERNAL_SERVER_ERROR).end();
         })
         .then(async (movie) => {
-            if (movie instanceof Movie) {
-                await (movie as any).setGenres(request.body.genres);
-                response.status(HttpStatusCode.CREATED).end(JSON.stringify(movie));
-            }
+            await (movie as any).setGenres(request.body.genres);
+            response.status(HttpStatusCode.CREATED).end(JSON.stringify(movie));
         });
 }
