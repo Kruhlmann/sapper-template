@@ -6,7 +6,7 @@ module.exports = {
         "^.+\\.tsx?$": "ts-jest",
         "^.+\\.svelte$": ["svelte-jester", { preprocess: true }],
     },
-    testRegex: "../tests/components/.*(feature|test|spec).tsx?$",
+    testRegex: "../tests/(components|unit)/.*(feature|test|spec).tsx?$",
     moduleFileExtensions: ["ts", "tsx", "js", "mjs", "json"],
     moduleNameMapper: {
         "^src/(.*)": "<rootDir>/src/$1",

@@ -2,14 +2,15 @@
 
 error=0
 cypress=$1
-cypress_config=$2
+cmd=$2
+cypress_config=$3
 
 $cypress verify || $cypress install
 
 node __sapper__/build &
 PID=$!
 
-$cypress run --config-file "$cypress_config" || error=10
+$cypress $cmd --config-file "$cypress_config" || error=10
 
 if [ "$error" -eq 0 ];then
     kill $PID
