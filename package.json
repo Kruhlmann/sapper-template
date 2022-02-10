@@ -64,7 +64,7 @@
         "jest": "^26.1.0",
         "jest-sonar-reporter": "^2.0.0",
         "jest-transform-svelte": "^2.1.1",
-        "node-sass": "^4.14.1",
+        "node-sass": "^7.0.0",
         "prettier": "^2.0.5",
         "prettier-plugin-svelte": "^1.1.0",
         "pug": "^3.0.1",
